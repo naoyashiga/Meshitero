@@ -38,6 +38,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as PhotoCell
         cell.backgroundColor = UIColor.orangeColor()
+        cell.imageView.image = UIImage(named: "meshi.jpg")
         
         return cell
     }
