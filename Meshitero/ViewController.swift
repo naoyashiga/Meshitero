@@ -25,7 +25,8 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         collectionView!.dataSource = self
         collectionView!.delegate = self
         
-        collectionView!.registerClass(PhotoCell.self, forCellWithReuseIdentifier: "Cell")
+//        collectionView!.registerClass(PhotoCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView!.registerNib(UINib(nibName: "PhotoCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
         collectionView!.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(collectionView!)
         

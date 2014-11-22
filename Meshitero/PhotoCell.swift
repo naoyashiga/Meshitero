@@ -9,17 +9,23 @@
 import UIKit
 
 class PhotoCell: UICollectionViewCell {
-    let imageView: UIImageView!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    @IBOutlet weak var imageView: UIImageView!
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        
+////        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height*2/3))
+////        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+////        contentView.addSubview(imageView)
+//    }
+    
+    override func awakeFromNib() {
+        println("test")
         
-        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height*2/3))
-        imageView.contentMode = UIViewContentMode.ScaleAspectFit
-        contentView.addSubview(imageView)
     }
 
     required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+//        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
 }
