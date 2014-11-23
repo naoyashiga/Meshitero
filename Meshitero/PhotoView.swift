@@ -10,9 +10,12 @@ import UIKit
 import Social
 
 class PhotoView: UIViewController {
+    var imageData:NSData!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        var meshiPhoto:UIImage!
+        
         var centerX: CGFloat = self.view.bounds.size.width / 2
         var centerY: CGFloat = self.view.bounds.size.height / 2
         var screenWidth: CGFloat = self.view.bounds.size.width
@@ -40,10 +43,18 @@ class PhotoView: UIViewController {
         
         //背景色
         self.view.backgroundColor = UIColor.blackColor()
-        println("photoView")
+        
+        
+        //UIImageViewのサイズと位置を決めます
+        var imgSize:CGFloat = 250;
+        meshiPhoto = UIImage(data: imageData)
+        var imageView:UIImageView = UIImageView(image: meshiPhoto)
+        imageView.frame = CGRectMake(centerX - screenWidth / 2, 0, screenWidth, imgSize)
+        
+        //viewに追加します
+        self.view.addSubview(imageView)
 
-        // Do any additional setup after loading the view.
-        //リトライボタン
+        //戻るボタン
         var button = UIButton.buttonWithType(UIButtonType.System) as UIButton
         if screenHeight <= 480{
             button.frame = CGRectMake(centerX - buttonWidth / 2, screenHeight - buttonHeight * 3 - adHeight / 2 - 5, buttonWidth, buttonHeight)
@@ -57,7 +68,7 @@ class PhotoView: UIViewController {
         button.layer.cornerRadius = cornerRadius
         button.layer.borderWidth = borderWidth
         button.layer.borderColor = UIColor.blackColor().CGColor
-        button.setTitle("もう一回する",forState: UIControlState.Normal)
+        button.setTitle("戻る",forState: UIControlState.Normal)
         button.titleLabel!.font =  UIFont(name: "Futura-CondensedExtraBold", size: btnFontSize)
         button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         button.tag = 1
