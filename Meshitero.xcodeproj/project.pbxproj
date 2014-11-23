@@ -33,6 +33,7 @@
 		3F957A71602EB4B00B5B51F9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		71F0DCD91C4BDB958BA3B07A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		95FD08E13C24F3A153362779 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9A8BE7A31A22AAE8008E8E9E /* Meshitero-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Meshitero-Bridging-Header.h"; sourceTree = "<group>"; };
 		9ABE2D021A21F3D2009C8E2F /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		9AE6BD7C1A202C4100BBBE1E /* Meshitero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meshitero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AE6BD801A202C4100BBBE1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 				9AE6BDA51A20B2C700BBBE1E /* PhotoCell.swift */,
 				9AE6BDA71A20B64300BBBE1E /* PhotoCell.xib */,
 				9ABE2D021A21F3D2009C8E2F /* PhotoView.swift */,
+				9A8BE7A31A22AAE8008E8E9E /* Meshitero-Bridging-Header.h */,
 			);
 			path = Meshitero;
 			sourceTree = "<group>";
@@ -402,9 +404,12 @@
 			baseConfigurationReference = 71F0DCD91C4BDB958BA3B07A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Meshitero/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Meshitero/Meshitero-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -413,9 +418,11 @@
 			baseConfigurationReference = 95FD08E13C24F3A153362779 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Meshitero/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Meshitero/Meshitero-Bridging-Header.h";
 			};
 			name = Release;
 		};

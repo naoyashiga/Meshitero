@@ -41,25 +41,19 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         
     }
     
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let photoCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as PhotoCell
-        photoCell.backgroundColor = UIColor.orangeColor()
         
         let photoUrlString = photos[indexPath.item]
         let url = NSURL(string: photoUrlString)
-        var err: NSError?
-        var imageData:NSData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
         
         println(indexPath.item)
-        photoCell.imageView.image = UIImage(data: imageData)
-        photoCell.imageView.alpha = 0
-        UIView.animateWithDuration(0.2, animations: {
-            photoCell.imageView.alpha = 1.0
-        })
+        photoCell.imageView.sd_setImageWithURL(url)
 
         return photoCell
     }
