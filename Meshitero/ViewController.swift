@@ -11,8 +11,10 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     var collectionView: UICollectionView?
     let photos:[String] = [
-        "http://pic.non117.com/c/8j.gif"
-    
+        "http://livedoor.blogimg.jp/ninja532s/imgs/5/7/57325a73.jpg",
+        "http://www.torian.jp/img/background4.jpg",
+        "http://imgcc.naver.jp/kaze/mission/USER/20140614/19/1344409/9/2592x1936x76dbec808706c1d0b066ce.jpg",
+        "http://blog-imgs-37.fc2.com/g/r/e/greeeenhidegendama/2010022808394581e.jpg"
     ]
 
     override func viewDidLoad() {
@@ -50,28 +52,12 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         var imageData:NSData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
         
         println(indexPath.item)
-//        let photoUrlRequest : NSURLRequest = NSURLRequest(URL: photoUrlString)
-//        
-//        let imageRequestSuccess = {
-//            (request : NSURLRequest!, response : NSHTTPURLResponse!, image : UIImage!) -> Void in
-//            photoCell.photoImageView.image = image;
-//            photoCell.photoImageView.alpha = 0
-//            UIView.animateWithDuration(0.2, animations: {
-//                photoCell.photoImageView.alpha = 1.0
-//            })
-//        }
-//        let imageRequestFailure = {
-//            (request : NSURLRequest!, response : NSHTTPURLResponse!, error : NSError!) -> Void in
-//            NSLog("imageRequrestFailure")
-//        }
         photoCell.imageView.image = UIImage(data: imageData)
         photoCell.imageView.alpha = 0
         UIView.animateWithDuration(0.2, animations: {
             photoCell.imageView.alpha = 1.0
         })
 
-//        photoCell.imageView.image = UIImage(named: "meshi.jpg")
-        
         return photoCell
     }
     
