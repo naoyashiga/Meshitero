@@ -37,11 +37,37 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as PhotoCell
-        cell.backgroundColor = UIColor.orangeColor()
-        cell.imageView.image = UIImage(named: "meshi.jpg")
+        let photoCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as PhotoCell
+        photoCell.backgroundColor = UIColor.orangeColor()
         
-        return cell
+        let photoUrlString = "http://www.torian.jp/img/background4.jpg"
+        let url = NSURL(string: photoUrlString)
+        var err: NSError?
+        var imageData:NSData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
+        
+//        let photoUrlRequest : NSURLRequest = NSURLRequest(URL: photoUrlString)
+//        
+//        let imageRequestSuccess = {
+//            (request : NSURLRequest!, response : NSHTTPURLResponse!, image : UIImage!) -> Void in
+//            photoCell.photoImageView.image = image;
+//            photoCell.photoImageView.alpha = 0
+//            UIView.animateWithDuration(0.2, animations: {
+//                photoCell.photoImageView.alpha = 1.0
+//            })
+//        }
+//        let imageRequestFailure = {
+//            (request : NSURLRequest!, response : NSHTTPURLResponse!, error : NSError!) -> Void in
+//            NSLog("imageRequrestFailure")
+//        }
+        photoCell.imageView.image = UIImage(data: imageData)
+        photoCell.imageView.alpha = 0
+        UIView.animateWithDuration(0.2, animations: {
+            photoCell.imageView.alpha = 1.0
+        })
+
+//        photoCell.imageView.image = UIImage(named: "meshi.jpg")
+        
+        return photoCell
     }
     
 
