@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     var collectionView: UICollectionView?
+    let photos:[String] = [
+        "http://pic.non117.com/c/8j.gif"
+    
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,18 +37,19 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 14
+        return photos.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let photoCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as PhotoCell
         photoCell.backgroundColor = UIColor.orangeColor()
         
-        let photoUrlString = "http://www.torian.jp/img/background4.jpg"
+        let photoUrlString = photos[indexPath.item]
         let url = NSURL(string: photoUrlString)
         var err: NSError?
         var imageData:NSData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
         
+        println(indexPath.item)
 //        let photoUrlRequest : NSURLRequest = NSURLRequest(URL: photoUrlString)
 //        
 //        let imageRequestSuccess = {

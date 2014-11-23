@@ -22,6 +22,7 @@ class PhotoCell: UICollectionViewCell {
 //        imageView.contentMode = UIViewContentMode.ScaleToFill
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
         contentView.addSubview(imageView)
+        
     }
     
 //    override func awakeFromNib() {
