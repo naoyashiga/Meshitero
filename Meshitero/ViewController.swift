@@ -11,10 +11,11 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     var collectionView: UICollectionView?
     let photos:[String] = [
-        "http://livedoor.blogimg.jp/ninja532s/imgs/5/7/57325a73.jpg",
-        "http://www.torian.jp/img/background4.jpg",
-        "http://imgcc.naver.jp/kaze/mission/USER/20140614/19/1344409/9/2592x1936x76dbec808706c1d0b066ce.jpg",
-        "http://blog-imgs-37.fc2.com/g/r/e/greeeenhidegendama/2010022808394581e.jpg",
+        "http://livedoor.blogimg.jp/ninja532s/imgs/5/7/57325a73.jpg"
+//        "http://livedoor.blogimg.jp/ninja532s/imgs/5/7/57325a73.jpg",
+//        "http://www.torian.jp/img/background4.jpg",
+//        "http://imgcc.naver.jp/kaze/mission/USER/20140614/19/1344409/9/2592x1936x76dbec808706c1d0b066ce.jpg",
+//        "http://blog-imgs-37.fc2.com/g/r/e/greeeenhidegendama/2010022808394581e.jpg",
     ]
 
     override func viewDidLoad() {
