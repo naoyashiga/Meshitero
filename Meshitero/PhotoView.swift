@@ -10,11 +10,12 @@ import UIKit
 import Social
 
 class PhotoView: UIViewController {
-    var imageData:NSData!
+//    var imageData:NSData!
+    var photoUrlString:NSString!
+    var meshiPhoto:UIImage!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var meshiPhoto:UIImage!
         
         var centerX: CGFloat = self.view.bounds.size.width / 2
         var centerY: CGFloat = self.view.bounds.size.height / 2
@@ -47,6 +48,9 @@ class PhotoView: UIViewController {
         
         //UIImageViewのサイズと位置を決めます
         var imgSize:CGFloat = 250;
+        let url = NSURL(string: photoUrlString)
+        var err: NSError?
+        var imageData:NSData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
         meshiPhoto = UIImage(data: imageData)
         var imageView:UIImageView = UIImageView(image: meshiPhoto)
         imageView.frame = CGRectMake(centerX - screenWidth / 2, 0, screenWidth, imgSize)
@@ -120,24 +124,32 @@ class PhotoView: UIViewController {
     func fbBtnAction(sender:UIButton!){
         var vc:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         var shareText:String = "sample"
+        //テキストを設定
         vc.setInitialText(shareText)
+        //投稿画像を設定
+        vc.addImage(meshiPhoto)
         self.presentViewController(vc,animated:true,completion:nil)
     }
     
     func tweetBtnAction(sender:UIButton!){
         var vc:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
         var shareText:String = "sample"
+        //テキストを設定
         vc.setInitialText(shareText)
+        //投稿画像を設定
+        vc.addImage(meshiPhoto)
         self.presentViewController(vc,animated:true,completion:nil)
     }
     
     func lineBtnAction(sender:UIButton!){
-        var shareText:String = "sample"
-        var encodeMessage: String! = shareText.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
-        var messageURL: NSURL! = NSURL( string: "line://msg/text/" + encodeMessage )
+        var pasteboard:UIPasteboard = UIPasteboard.generalPasteboard()
+        //投稿画像を設定
+        pasteboard.image = meshiPhoto
         
-        if (UIApplication.sharedApplication().canOpenURL(messageURL)) {
-            UIApplication.sharedApplication().openURL( messageURL )
+        var imageURL: NSURL! = NSURL(string: "line://msg/image/" + pasteboard.name)
+        
+        if (UIApplication.sharedApplication().canOpenURL(imageURL)) {
+            UIApplication.sharedApplication().openURL(imageURL)
         }
     }
     

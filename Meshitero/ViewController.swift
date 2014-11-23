@@ -68,13 +68,12 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         println("touch")
         println(indexPath.item)
         let photoCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as PhotoCell
-        photoCell.imageView.alpha = 0.8
+//        photoCell.imageView.alpha = 0.8
         
         var vc: PhotoView = PhotoView()
         let photoUrlString = photos[indexPath.item]
-        let url = NSURL(string: photoUrlString)
-        var err: NSError?
-        vc.imageData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
+        
+        vc.photoUrlString = photoUrlString
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
