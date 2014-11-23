@@ -15,14 +15,14 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         "http://www.torian.jp/img/background4.jpg",
         "http://imgcc.naver.jp/kaze/mission/USER/20140614/19/1344409/9/2592x1936x76dbec808706c1d0b066ce.jpg",
         "http://blog-imgs-37.fc2.com/g/r/e/greeeenhidegendama/2010022808394581e.jpg",
-        "http://livedoor.blogimg.jp/ninja532s/imgs/5/7/57325a73.jpg",
-        "http://www.torian.jp/img/background4.jpg"
     ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //ナビゲーションバー非表示
+        self.navigationController?.navigationBarHidden = true
         //レイアウト作成
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
 //        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right :10)
@@ -64,10 +64,19 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        println("touch")
         println(indexPath.item)
+        let photoCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as PhotoCell
+        photoCell.imageView.alpha = 0.8
+        
+        var vc: PhotoView = PhotoView()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
+        println("highlight")
+        println(indexPath.item)
+        
         
     }
 
