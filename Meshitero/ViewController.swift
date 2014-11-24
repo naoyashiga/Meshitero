@@ -11,16 +11,16 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     var collectionView: UICollectionView?
     let photos:[String] = [
-        "http://imgc.appbank.net/c/wp-content/uploads/2013/05/jirou-shinjuku-15.jpg",
-        "http://livedoor.blogimg.jp/netaatoz/imgs/7/4/74b81ff7.jpg",
         "http://www.beautynewstokyo.jp/wp/wp-content/uploads/2013/05/aaaaaaBODY_nikusyoku-449x300.jpg",
-        "http://imgc.appbank.net/c/wp-content/uploads/2013/05/jirou-shinjuku-15.jpg",
         "http://livedoor.blogimg.jp/netaatoz/imgs/7/4/74b81ff7.jpg",
-        "http://www.beautynewstokyo.jp/wp/wp-content/uploads/2013/05/aaaaaaBODY_nikusyoku-449x300.jpg"
-//        "http://livedoor.blogimg.jp/ninja532s/imgs/5/7/57325a73.jpg",
-//        "http://www.torian.jp/img/background4.jpg",
-//        "http://imgcc.naver.jp/kaze/mission/USER/20140614/19/1344409/9/2592x1936x76dbec808706c1d0b066ce.jpg",
-//        "http://blog-imgs-37.fc2.com/g/r/e/greeeenhidegendama/2010022808394581e.jpg",
+        "http://imgc.appbank.net/c/wp-content/uploads/2013/05/jirou-shinjuku-15.jpg",
+        "http://image1-3.tabelog.k-img.com/restaurant/images/Rvw/1443/1443161.jpg",
+        "http://ns.guide-navi.jp/images/00380001.jpg",
+        "http://blog-imgs-37.fc2.com/g/r/e/greeeenhidegendama/2010022808394581e.jpg",
+        "http://imgcc.naver.jp/kaze/mission/USER/20140101/19/1344409/32/2592x1936xaacf125bc5f220bc711e86.jpg",
+        "http://uf.lococom.jp/img/userarticle/469208962_20156188_20172018.jpeg",
+        "http://imgcc.naver.jp/kaze/mission/USER/20140807/19/1344409/52/2592x1936x3eca9c86075eb3606e7861.jpg",
+        "http://articleimage.nicoblomaga.jp/image/16/2014/5/e/5e44d1bfc5514931dedc76127badd2078921ab001391967711.jpeg"
     ]
 
     override func viewDidLoad() {
