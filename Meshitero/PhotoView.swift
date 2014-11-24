@@ -17,30 +17,14 @@ class PhotoView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //ビューの位置、大きさ
         var centerX: CGFloat = self.view.bounds.size.width / 2
         var centerY: CGFloat = self.view.bounds.size.height / 2
         var screenWidth: CGFloat = self.view.bounds.size.width
-        var screenHeight: CGFloat = self.view.bounds.size.height
-        var buttonWidth: CGFloat = self.view.bounds.size.width * 0.8
-        var buttonHeight: CGFloat = 50
-        var btnMarginY: CGFloat = 20
-        var btnFontSize: CGFloat = 22
-        var cornerRadius: CGFloat = 10
-        var borderWidth: CGFloat = 1
         
+        //ボタンサイズ
         var shareBtnWidth: CGFloat = self.view.bounds.size.width * 0.2
-        var shareBtnHeight: CGFloat = buttonHeight
         var shareBtnMargin: CGFloat = 30
-        var shareBtnFontSize:CGFloat = 18
-        
-        var adHeight:CGFloat = 100
-        var shareCenterY:CGFloat!
-        if screenWidth > 320 {
-            shareCenterY = centerY
-        }else{
-            shareCenterY = centerY - adHeight / 2
-        
-        }
         
         //背景色
         self.view.backgroundColor = UIColor.blackColor()
@@ -58,66 +42,10 @@ class PhotoView: UIViewController {
         //viewに追加します
         self.view.addSubview(imageView)
 
-        //戻るボタン
-        var button = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        if screenHeight <= 480{
-            button.frame = CGRectMake(centerX - buttonWidth / 2, screenHeight - buttonHeight * 3 - adHeight / 2 - 5, buttonWidth, buttonHeight)
-            
-        }else{
-            button.frame = CGRectMake(centerX - buttonWidth / 2, screenHeight - buttonHeight * 2 - adHeight / 2 - 5, buttonWidth, buttonHeight)
-            
-        }
-        button.backgroundColor = UIColor.whiteColor()
-        
-        button.layer.cornerRadius = cornerRadius
-        button.layer.borderWidth = borderWidth
-        button.layer.backgroundColor = UIColor.blackColor().CGColor
-        button.layer.borderColor = UIColor.whiteColor().CGColor
-        button.setTitle("戻る",forState: UIControlState.Normal)
-        button.titleLabel!.font =  UIFont(name: "Futura-CondensedExtraBold", size: btnFontSize)
-        button.tintColor = UIColor.whiteColor()
-        button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        button.tag = 1
-        self.view.addSubview(button)
-        
-        //twitter
-//        var tweetBtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
-//        tweetBtn.frame = CGRectMake(centerX - shareBtnWidth / 2, shareCenterY, shareBtnWidth, shareBtnHeight)
-//        tweetBtn.backgroundColor = UIColor.whiteColor()
-//        tweetBtn.layer.cornerRadius = cornerRadius
-//        tweetBtn.layer.borderWidth = borderWidth
-//        tweetBtn.layer.borderColor = UIColor.blackColor().CGColor
-//        tweetBtn.setTitle("Tweet",forState: UIControlState.Normal)
-//        tweetBtn.titleLabel!.font =  UIFont(name: "Futura-CondensedMedium", size: shareBtnFontSize)
-//        tweetBtn.addTarget(self, action: "tweetBtnAction:", forControlEvents: UIControlEvents.TouchUpInside)
-//        self.view.addSubview(tweetBtn)
-        
+        addButton(0, title: "Back")
         addButton(0, title: "Tweet")
         addButton(shareBtnWidth + shareBtnMargin, title: "LINE")
-        addButton(-shareBtnWidth - shareBtnMargin, title: "Facebook")
-        //LINE
-//        var lineBtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
-//        lineBtn.frame = CGRectMake(centerX - shareBtnWidth / 2 + shareBtnWidth + shareBtnMargin, shareCenterY, shareBtnWidth, shareBtnHeight)
-//        lineBtn.backgroundColor = UIColor.whiteColor()
-//        lineBtn.layer.cornerRadius = cornerRadius
-//        lineBtn.layer.borderWidth = borderWidth
-//        lineBtn.layer.borderColor = UIColor.blackColor().CGColor
-//        lineBtn.setTitle("LINE",forState: UIControlState.Normal)
-//        lineBtn.titleLabel!.font =  UIFont(name: "Futura-CondensedMedium", size: shareBtnFontSize)
-//        lineBtn.addTarget(self, action: "lineBtnAction:", forControlEvents: UIControlEvents.TouchUpInside)
-//        self.view.addSubview(lineBtn)
-        
-        //Facebook
-//        var fbBtn = UIButton.buttonWithType(UIButtonType.System) as UIButton
-//        fbBtn.frame = CGRectMake(centerX - shareBtnWidth / 2 - shareBtnWidth - shareBtnMargin, shareCenterY, shareBtnWidth, shareBtnHeight)
-//        fbBtn.backgroundColor = UIColor.whiteColor()
-//        fbBtn.layer.cornerRadius = cornerRadius
-//        fbBtn.layer.borderWidth = borderWidth
-//        fbBtn.layer.borderColor = UIColor.blackColor().CGColor
-//        fbBtn.setTitle("Facebook",forState: UIControlState.Normal)
-//        fbBtn.titleLabel!.font =  UIFont(name: "Futura-CondensedMedium", size: shareBtnFontSize)
-//        fbBtn.addTarget(self, action: "fbBtnAction:", forControlEvents: UIControlEvents.TouchUpInside)
-//        self.view.addSubview(fbBtn)
+        addButton(-shareBtnWidth - shareBtnMargin, title: "FB")
     }
 
     override func didReceiveMemoryWarning() {
@@ -142,34 +70,50 @@ class PhotoView: UIViewController {
         var shareBtnMargin: CGFloat = 30
         var shareBtnFontSize:CGFloat = 18
         
-        var adHeight:CGFloat = 100
         var shareCenterY:CGFloat!
         if screenWidth > 320 {
-            shareCenterY = centerY
+            shareCenterY = centerY * 1.3
         }else{
-            shareCenterY = centerY - adHeight / 2
+            shareCenterY = centerY * 1.3
         }
         
         var actionName:Selector!
         
         var btn = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        btn.frame = CGRectMake(centerX - shareBtnWidth / 2 + x, shareCenterY, shareBtnWidth, shareBtnHeight)
+        
+        if title == "Back"{
+            //backボタンの大きさ
+            if screenHeight <= 480{
+                btn.frame = CGRectMake(centerX - buttonWidth / 2, screenHeight - buttonHeight * 3, buttonWidth, buttonHeight)
+            }else{
+                btn.frame = CGRectMake(centerX - buttonWidth / 2, screenHeight - buttonHeight * 2, buttonWidth, buttonHeight)
+            }
+        }else{
+            btn.frame = CGRectMake(centerX - shareBtnWidth / 2 + x, shareCenterY, shareBtnWidth, shareBtnHeight)
+            
+        }
+        
         btn.backgroundColor = UIColor.blackColor()
         btn.layer.cornerRadius = cornerRadius
         btn.layer.borderWidth = borderWidth
         btn.layer.borderColor = UIColor.whiteColor().CGColor
         
         btn.setTitle(title,forState: UIControlState.Normal)
-        btn.titleLabel!.font =  UIFont(name: "Futura-CondensedMedium", size: shareBtnFontSize)
+        btn.titleLabel!.font =  UIFont(name: "Telugu Sangam MN", size: shareBtnFontSize)
         btn.tintColor = UIColor.whiteColor()
         
         //セレクターの判定
-        if title == "Tweet"{
-            actionName = "tweetBtnAction"
-        }else if title == "LINE"{
-            actionName = "lineBtnAction"
-        }else if title == "Facebook"{
-            actionName = "fbBtnAction"
+        switch title{
+            case "Tweet":
+                actionName = "tweetBtnAction:"
+            case "LINE":
+                actionName = "lineBtnAction:"
+            case "FB":
+                actionName = "fbBtnAction:"
+            case "Back":
+                actionName = "backBtnAction:"
+            default:
+                break;
         }
         
         btn.addTarget(self, action: actionName, forControlEvents: UIControlEvents.TouchUpInside)
@@ -208,7 +152,7 @@ class PhotoView: UIViewController {
         }
     }
     
-    func buttonAction(sender:UIButton!){
+    func backBtnAction(sender:UIButton!){
         //リトライする
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
