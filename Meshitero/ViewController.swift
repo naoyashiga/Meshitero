@@ -34,8 +34,8 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
 //        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right :10)
 //        layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width / 4, height: 100)
         var imgSize = UIScreen.mainScreen().bounds.width
-        println(UIScreen.mainScreen().bounds.width / 3)
-        layout.itemSize = CGSize(width: imgSize, height: imgSize)
+        println(UIScreen.mainScreen().bounds.width)
+        layout.itemSize = CGSize(width: imgSize, height: UIScreen.mainScreen().bounds.height / 2)
        
         //コレクションビューのインスタンスを作成
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
@@ -87,7 +87,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
