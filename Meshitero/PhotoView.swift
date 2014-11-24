@@ -38,24 +38,20 @@ class PhotoView: UIViewController {
         
         //UIImageViewのサイズと位置を決めます
         var imgSize:CGFloat = 250;
+        //選択された画像を取得
         let url = NSURL(string: photoUrlString)
         var err: NSError?
         var imageData:NSData = NSData(contentsOfURL: url!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
         meshiPhoto = UIImage(data: imageData)
-        var imageView:UIImageView = UIImageView(image: meshiPhoto)
-        imageView.frame = CGRectMake(centerX - screenWidth / 2, 0, screenWidth, imgSize)
         
-        //viewに追加します
-        self.view.addSubview(imageView)
-
-        var imageView2:UIImageView = UIImageView(image: meshiPhoto)
-        imageView2.frame = CGRectMake(centerX - screenWidth / 2, imgSize, screenWidth, imgSize)
-        self.view.addSubview(imageView2)
+        //背景画像を設定
+        for var i = 0;i < 3; i++ {
+            var imageView:UIImageView = UIImageView(image: meshiPhoto)
+            imageView.frame = CGRectMake(centerX - screenWidth / 2, imgSize * CGFloat(i), screenWidth, imgSize)
+            //viewに追加します
+            self.view.addSubview(imageView)
+        }
         
-        var imageView3:UIImageView = UIImageView(image: meshiPhoto)
-        imageView3.frame = CGRectMake(centerX - screenWidth / 2, imgSize * 2, screenWidth, imgSize)
-        //viewに追加します
-        self.view.addSubview(imageView3)
         addButton(0, title: "Back")
         addButton(0, title: "Tweet")
         addButton(shareBtnWidth + shareBtnMargin, title: "LINE")
