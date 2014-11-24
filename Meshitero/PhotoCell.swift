@@ -16,8 +16,7 @@ class PhotoCell: UICollectionViewCell {
         super.init(frame: frame)
         
         imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
-//        var division : CGFloat = (imageView.frame.size.width / 2.0)
-//        imageView.layer.cornerRadius = division
+//        imageView.layer.cornerRadius = 10
 //        imageView.clipsToBounds = true
 //        imageView.contentMode = UIViewContentMode.ScaleToFill
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
