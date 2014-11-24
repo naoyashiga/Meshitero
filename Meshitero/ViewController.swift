@@ -25,15 +25,15 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        //ナビゲーションバー非表示
-//        self.navigationController?.navigationBarHidden = true
+        //ナビゲーションバーのスタイル
+        self.navigationController?.navigationBar.barTintColor = UIColor.hexStr("000000", alpha: 1)
+        self.navigationController?.navigationBar.tintColor = UIColor.hexStr("fefefe", alpha: 1)
         // タイトルを表示するラベルを作成
-        let label = UILabel()
-        label.text = "Food Porn"
-        label.sizeToFit()
-        navigationItem.titleView = label
+        let navigationLabel = UILabel()
+        navigationLabel.text = "Food Porn"
+        navigationLabel.textColor  = UIColor.hexStr("fefefe", alpha: 1)
+        navigationLabel.sizeToFit()
+        navigationItem.titleView = navigationLabel
         
         //レイアウト作成
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
