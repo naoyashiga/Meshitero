@@ -28,6 +28,12 @@ class PhotoView: UIViewController {
         
         //背景色
         self.view.backgroundColor = UIColor.blackColor()
+        // タイトルを表示するラベルを作成
+        let navigationLabel = UILabel()
+        navigationLabel.text = "Share this image"
+        navigationLabel.textColor  = UIColor.hexStr("fefefe", alpha: 1)
+        navigationLabel.sizeToFit()
+        navigationItem.titleView = navigationLabel
         
         
         //UIImageViewのサイズと位置を決めます
