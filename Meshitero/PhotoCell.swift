@@ -20,9 +20,9 @@ class PhotoCell: UICollectionViewCell {
 //        imageView.layer.cornerRadius = division
 //        imageView.clipsToBounds = true
 //        imageView.contentMode = UIViewContentMode.ScaleToFill
-        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+//        imageView.contentMode = UIViewContentMode.ScaleAspectFill
         contentView.addSubview(imageView)
-        
     }
     
 //    override func awakeFromNib() {

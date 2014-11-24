@@ -11,7 +11,12 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     var collectionView: UICollectionView?
     let photos:[String] = [
-        "http://livedoor.blogimg.jp/ninja532s/imgs/5/7/57325a73.jpg"
+        "http://imgc.appbank.net/c/wp-content/uploads/2013/05/jirou-shinjuku-15.jpg",
+        "http://livedoor.blogimg.jp/netaatoz/imgs/7/4/74b81ff7.jpg",
+        "http://www.beautynewstokyo.jp/wp/wp-content/uploads/2013/05/aaaaaaBODY_nikusyoku-449x300.jpg",
+        "http://imgc.appbank.net/c/wp-content/uploads/2013/05/jirou-shinjuku-15.jpg",
+        "http://livedoor.blogimg.jp/netaatoz/imgs/7/4/74b81ff7.jpg",
+        "http://www.beautynewstokyo.jp/wp/wp-content/uploads/2013/05/aaaaaaBODY_nikusyoku-449x300.jpg"
 //        "http://livedoor.blogimg.jp/ninja532s/imgs/5/7/57325a73.jpg",
 //        "http://www.torian.jp/img/background4.jpg",
 //        "http://imgcc.naver.jp/kaze/mission/USER/20140614/19/1344409/9/2592x1936x76dbec808706c1d0b066ce.jpg",
@@ -27,8 +32,11 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         //レイアウト作成
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
 //        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right :10)
-        layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 150)
-        
+//        layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width / 4, height: 100)
+        var imgSize = UIScreen.mainScreen().bounds.width
+        println(UIScreen.mainScreen().bounds.width / 3)
+        layout.itemSize = CGSize(width: imgSize, height: imgSize)
+       
         //コレクションビューのインスタンスを作成
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView!.dataSource = self
@@ -48,6 +56,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let photoCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as PhotoCell
+        photoCell.backgroundColor = UIColor.orangeColor()
         
         let photoUrlString = photos[indexPath.item]
         let url = NSURL(string: photoUrlString)
