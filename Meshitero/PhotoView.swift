@@ -134,7 +134,7 @@ class PhotoView: UIViewController {
     
     func fbBtnAction(sender:UIButton!){
         var vc:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-        var shareText:String = "sample"
+        var shareText:String = "#飯テロ"
         //テキストを設定
         vc.setInitialText(shareText)
         //投稿画像を設定
@@ -144,7 +144,7 @@ class PhotoView: UIViewController {
     
     func tweetBtnAction(sender:UIButton!){
         var vc:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-        var shareText:String = "sample"
+        var shareText:String = "#飯テロ"
         //テキストを設定
         vc.setInitialText(shareText)
         //投稿画像を設定
