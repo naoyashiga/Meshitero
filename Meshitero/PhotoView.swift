@@ -42,6 +42,14 @@ class PhotoView: UIViewController {
         //viewに追加します
         self.view.addSubview(imageView)
 
+        var imageView2:UIImageView = UIImageView(image: meshiPhoto)
+        imageView2.frame = CGRectMake(centerX - screenWidth / 2, imgSize, screenWidth, imgSize)
+        self.view.addSubview(imageView2)
+        
+        var imageView3:UIImageView = UIImageView(image: meshiPhoto)
+        imageView3.frame = CGRectMake(centerX - screenWidth / 2, imgSize * 2, screenWidth, imgSize)
+        //viewに追加します
+        self.view.addSubview(imageView3)
         addButton(0, title: "Back")
         addButton(0, title: "Tweet")
         addButton(shareBtnWidth + shareBtnMargin, title: "LINE")

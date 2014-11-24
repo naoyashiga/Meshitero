@@ -29,6 +29,12 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         
         //ナビゲーションバー非表示
 //        self.navigationController?.navigationBarHidden = true
+        // タイトルを表示するラベルを作成
+        let label = UILabel()
+        label.text = "Food Porn"
+        label.sizeToFit()
+        navigationItem.titleView = label
+        
         //レイアウト作成
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
 //        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right :10)
