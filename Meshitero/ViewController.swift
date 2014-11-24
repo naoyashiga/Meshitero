@@ -41,7 +41,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
 //        layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width / 4, height: 100)
         var imgSize = UIScreen.mainScreen().bounds.width
         println(UIScreen.mainScreen().bounds.width)
-        layout.itemSize = CGSize(width: imgSize, height: UIScreen.mainScreen().bounds.height / 2)
+        layout.itemSize = CGSize(width: imgSize, height: UIScreen.mainScreen().bounds.height / 2.3)
         //背景
        
         //コレクションビューのインスタンスを作成
@@ -64,8 +64,8 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let photoCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as PhotoCell
         photoCell.backgroundColor = UIColor.blackColor()
-        photoCell.layer.borderWidth = 1
-        photoCell.layer.borderColor = UIColor.hexStr("212121", alpha: 1).CGColor
+//        photoCell.layer.borderWidth = 1
+//        photoCell.layer.borderColor = UIColor.hexStr("212121", alpha: 1).CGColor
 //        photoCell.layer.shadowColor = UIColor.grayColor().CGColor
 //        photoCell.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
         
@@ -82,7 +82,6 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         println("touch")
         println(indexPath.item)
         let photoCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as PhotoCell
-//        photoCell.imageView.alpha = 0.8
         
         var vc: PhotoView = PhotoView()
         let photoUrlString = photos[indexPath.item]
@@ -93,10 +92,6 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     }
     
     func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
-        println("highlight")
-        println(indexPath.item)
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
