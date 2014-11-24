@@ -99,8 +99,10 @@ class PhotoView: UIViewController {
         btn.layer.borderColor = UIColor.whiteColor().CGColor
         
         btn.setTitle(title,forState: UIControlState.Normal)
-        btn.titleLabel!.font =  UIFont(name: "Telugu Sangam MN", size: shareBtnFontSize)
+        btn.titleLabel!.font =  UIFont(name: "Kailasa", size: shareBtnFontSize)
         btn.tintColor = UIColor.whiteColor()
+        btn.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
+        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center
         
         //セレクターの判定
         switch title{
