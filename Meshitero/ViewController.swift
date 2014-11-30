@@ -30,7 +30,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         self.navigationController?.navigationBar.tintColor = UIColor.hexStr("fefefe", alpha: 1)
         // タイトルを表示するラベルを作成
         let navigationLabel = UILabel()
-        navigationLabel.text = "Food Porn stop dieting"
+        navigationLabel.text = "Food Porn"
         navigationLabel.textColor = UIColor.hexStr("fefefe", alpha: 1)
         navigationLabel.sizeToFit()
         navigationItem.titleView = navigationLabel
