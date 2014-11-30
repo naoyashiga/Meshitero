@@ -33,10 +33,13 @@
 		3F957A71602EB4B00B5B51F9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		71F0DCD91C4BDB958BA3B07A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		95FD08E13C24F3A153362779 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9A2FCEF01A2AE8C4007C1D55 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9A2FCEF11A2AE8EF007C1D55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
+		9A2FCEF31A2AE8F2007C1D55 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ja; path = ja.lproj/Info.plist; sourceTree = "<group>"; };
+		9A2FCEF41A2AE91C007C1D55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		9A8BE7A31A22AAE8008E8E9E /* Meshitero-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Meshitero-Bridging-Header.h"; sourceTree = "<group>"; };
 		9ABE2D021A21F3D2009C8E2F /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		9AE6BD7C1A202C4100BBBE1E /* Meshitero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meshitero.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9AE6BD801A202C4100BBBE1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AE6BD811A202C4100BBBE1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AE6BD831A202C4100BBBE1E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9AE6BD881A202C4200BBBE1E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -125,7 +128,7 @@
 		9AE6BD7F1A202C4100BBBE1E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9AE6BD801A202C4100BBBE1E /* Info.plist */,
+				9A2FCEF21A2AE8EF007C1D55 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 9AE6BD731A202C4100BBBE1E;
 			productRefGroup = 9AE6BD7D1A202C4100BBBE1E /* Products */;
@@ -309,10 +313,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		9A2FCEF21A2AE8EF007C1D55 /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A2FCEF11A2AE8EF007C1D55 /* en */,
+				9A2FCEF31A2AE8F2007C1D55 /* ja */,
+				9A2FCEF41A2AE91C007C1D55 /* Base */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
 		9AE6BD8A1A202C4200BBBE1E /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9AE6BD8B1A202C4200BBBE1E /* Base */,
+				9A2FCEF01A2AE8C4007C1D55 /* ja */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
